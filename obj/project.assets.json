@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mattk\\OneDrive\\Desktop\\Code\\Password Management Software\\Password Management Software.csproj",
+      "projectUniqueName": "C:\\Users\\mattk\\OneDrive\\Desktop\\Fall 2020\\Code\\Password Management Software\\Password Management Software.csproj",
       "projectName": "Password Management Software",
-      "projectPath": "C:\\Users\\mattk\\OneDrive\\Desktop\\Code\\Password Management Software\\Password Management Software.csproj",
+      "projectPath": "C:\\Users\\mattk\\OneDrive\\Desktop\\Fall 2020\\Code\\Password Management Software\\Password Management Software.csproj",
       "packagesPath": "C:\\Users\\mattk\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mattk\\OneDrive\\Desktop\\Code\\Password Management Software\\obj\\",
+      "outputPath": "C:\\Users\\mattk\\OneDrive\\Desktop\\Fall 2020\\Code\\Password Management Software\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mattk\\AppData\\Roaming\\NuGet\\NuGet.Config",
