@@ -16,6 +16,8 @@ namespace Password_Management_Software
         int passwords = -1;
         List<RadioButton> radioButtons = new List<RadioButton>();
         int clickedbutton = 0;
+        bool number = false;
+        bool uppercase = false;
 
         public Form1()
         {
@@ -38,7 +40,7 @@ namespace Password_Management_Software
         {
             RadioButton radioButton = new RadioButton();
             radioButton.AutoSize = true;
-            radioButton.Location = new System.Drawing.Point(800, (passwords*20));
+            radioButton.Location = new System.Drawing.Point(19, (passwords * 20));
             radioButton.Name = ""+passwords;
             radioButton.Size = new System.Drawing.Size(94, 19);
             radioButton.TabIndex = 1;
@@ -49,6 +51,8 @@ namespace Password_Management_Software
             passwords = passwords + 1;
             Controls.Add(radioButton);
             radioButtons.Add(radioButton);
+            panel1.Controls.Add(radioButton);
+
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)//puts the passwords text into the textbox
@@ -65,7 +69,7 @@ namespace Password_Management_Software
             }
             RadioButton radioButton = new RadioButton();
             radioButton.AutoSize = true;
-            radioButton.Location = new System.Drawing.Point(800, (passwords * 20));
+            radioButton.Location = new System.Drawing.Point(17, (passwords * 20));
             radioButton.Name = "" + passwords;
             radioButton.Size = new System.Drawing.Size(94, 19);
             radioButton.TabIndex = 1;
@@ -76,6 +80,7 @@ namespace Password_Management_Software
             passwords = passwords + 1;
             Controls.Add(radioButton);
             radioButtons.Add(radioButton);
+            panel1.Controls.Add(radioButton);
         }
         private void button5_Click(object sender, EventArgs e) //creates new password buttons
         {
@@ -112,8 +117,7 @@ namespace Password_Management_Software
                     {
                         //string[] values = line.Split(',');//splits the data into its seperate values  
                         create_new_password_from_file(line);
-                        //Stock stock = new Stock(values[0], double.Parse(values[1]), double.Parse(values[2]), double.Parse(values[3]), double.Parse(values[4]), double.Parse(values[5]), Int32.Parse(values[6]));//creates a new stock object with the data from the line
-                        //stocklist.Add(stock);//adds new stock object to arraylist
+
                     }
                 }
 
@@ -121,14 +125,58 @@ namespace Password_Management_Software
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)//password generator
+        {
+            Random rnd = new Random();
+            textBox3.Text = "";
+            string lowerletters = "abcdefghijklmnopqrstuvwxyz";
+            string upperletters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            if (textBox4.Text=="")
+            {
+                return;
+            }
+            for (int i=0; i<Int32.Parse(textBox4.Text);i++)
+            {
+                int roll = rnd.Next(0, 2);
+                int upper = rnd.Next(0, 2);
+                if (number==true && roll!=1)//add a number
+                {
+                    textBox3.Text = textBox3.Text + rnd.Next(0, 10);
+                }
+                else if (uppercase == true && upper!=1)//add a number
+                {
+                    textBox3.Text = textBox3.Text + upperletters[rnd.Next(0, 26)];
+                }
+                else//add a letter
+                {
+                    textBox3.Text = textBox3.Text + lowerletters[rnd.Next(0, 26)];
+                }
+            }
+        }
+
         private void button6_Click(object sender, EventArgs e)
         {
-
+            comboBox1.Items.AddRange(new object[] {textBox5.Text}); ;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) //pick search catagory
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)//IF UPPERCASE
+        {
+            uppercase = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)//if number
+        {
+            number = true;
         }
     }
 }
