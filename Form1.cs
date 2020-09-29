@@ -36,6 +36,7 @@ namespace Password_Management_Software
                 radioButtons[clickedbutton].Text = textBox2.Text;
             }
         }
+
         private void create_new_password()//creates new password buttons on the screen
         {
             RadioButton radioButton = new RadioButton();
@@ -61,6 +62,7 @@ namespace Password_Management_Software
             textBox1.Text = radioButton.Text;
             clickedbutton = Int32.Parse(radioButton.Name);
         }
+
         private void create_new_password_from_file(string text)//creates new password buttons on the screen
         {
             if(passwords<0)
@@ -82,6 +84,7 @@ namespace Password_Management_Software
             radioButtons.Add(radioButton);
             panel1.Controls.Add(radioButton);
         }
+
         private void button5_Click(object sender, EventArgs e) //creates new password buttons
         {
             create_new_password();
@@ -91,6 +94,7 @@ namespace Password_Management_Software
         {
             save();
         }
+
         private void save()
         {
             string filename = "passwords.txt";
