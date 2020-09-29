@@ -89,14 +89,19 @@ namespace Password_Management_Software
 
         private void button7_Click(object sender, EventArgs e)//save passwords to the file
         {
+            save();
+        }
+        private void save()
+        {
             string filename = "passwords.txt";
             StreamWriter outputfile = new StreamWriter(filename);
-            for(int i=0; i< radioButtons.Count; i++)
+            for (int i = 0; i < radioButtons.Count; i++)
             {
                 outputfile.WriteLine(radioButtons[i].Text);
             }
             outputfile.Close();
         }
+
         private void load_file()
         {
             string filename = "passwords.txt";
@@ -154,14 +159,10 @@ namespace Password_Management_Software
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)//adds a new catagory to the combo boxes
         {
-            comboBox1.Items.AddRange(new object[] {textBox5.Text}); ;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            comboBox1.Items.AddRange(new object[] { textBox5.Text} );
+            comboBox2.Items.AddRange(new object[] { textBox5.Text} );
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) //pick search catagory
@@ -177,6 +178,20 @@ namespace Password_Management_Software
         private void button4_Click(object sender, EventArgs e)//if number
         {
             number = true;
+        }
+
+        private void button9_Click(object sender, EventArgs e)//message box if you click exit
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you want to save before leaving?","Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                save();
+                Application.Exit();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }
